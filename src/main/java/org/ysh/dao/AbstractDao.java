@@ -10,7 +10,5 @@ public interface AbstractDao<T> {
 	
 	public List<T> reverse(T t,boolean fuzzy);
 	
-	public T query(T t);
-	
 	public void delete(T t);
 }

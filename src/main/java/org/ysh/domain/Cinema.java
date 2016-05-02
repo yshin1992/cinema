@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * µçÓ°±íĞÅÏ¢ÊµÌåÀà
+ * ç”µå½±è¡¨ä¿¡æ¯å®ä½“ç±»
  * @author Administrator
  *
  */
@@ -13,37 +13,37 @@ public class Cinema implements Entity {
 	private long id;
 	
 	/**
-	 * µçÓ°Ãû³Æ
+	 * ç”µå½±åç§°
 	 */
 	private String cinemaName;
 	
 	/**
-	 * µ¼Ñİ
+	 * å¯¼æ¼”
 	 */
 	private String director;
 	
 	/**
-	 * ÑİÔ±
+	 * æ¼”å‘˜
 	 */
 	private List<String> actor;
 	
 	/**
-	 * µØÇø
+	 * åœ°åŒº
 	 */
 	private String address;
 	
 	/**
-	 * ÉÏÓ³Ê±¼ä
+	 * ä¸Šæ˜ æ—¶é—´
 	 */
 	private Date playTime;
 	
 	/**
-	 * µçÓ°¼ò½é
+	 * ç”µå½±ç®€ä»‹
 	 */
 	private char[] describe;
 	
 	/**
-	 * º£±¨
+	 * æµ·æŠ¥
 	 */
 	private byte[] poster;
 

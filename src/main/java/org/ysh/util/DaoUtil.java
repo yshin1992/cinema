@@ -17,10 +17,10 @@ public class DaoUtil {
 	 static{
 		 try{
 			 
-			 //¼ÓÔØÊı¾İ¿âÅäÖÃÎÄ¼ş
+			 //åŠ è½½æ•°æ®åº“é…ç½®æ–‡ä»¶
 			 InputStream is = DaoUtil.class.getResourceAsStream(CFG_NAME);
 			 prop.load(is);
-			 //¼ÓÔØMysqlÇı¶¯
+			 //åŠ è½½Mysqlé©±åŠ¨
 			 Class.forName(prop.getProperty("db.driverClass"));
 			 is.close();
 		 }catch(Exception e)
@@ -30,7 +30,7 @@ public class DaoUtil {
 		 
 	 }
 	/**
-	 * »ñÈ¡Êı¾İ¿âÁ¬½Ó
+	 * è·å–æ•°æ®åº“è¿æ¥
 	 * @return
 	 */
 	public static Connection getConn()
@@ -45,7 +45,7 @@ public class DaoUtil {
 		return conn;
 	}
 	/**
-	 * ¹Ø±ÕÊı¾İ¿âÁ¬½Ó
+	 * å…³é—­æ•°æ®åº“è¿æ¥
 	 * @param conn
 	 */
 	public static void closeConn(Connection conn)
@@ -61,7 +61,7 @@ public class DaoUtil {
 	}
 	
 	/**
-	 * ¹Ø±ÕStatement
+	 * å…³é—­Statement
 	 */
 	public static void closeStmt(Statement stmt)
 	{
@@ -76,7 +76,7 @@ public class DaoUtil {
 	}
 	
 	/**
-	 * ¹Ø±Õ½á¹û¼¯
+	 * å…³é—­ç»“æœé›†
 	 */
 	public static void closeResultSet(ResultSet rs)
 	{

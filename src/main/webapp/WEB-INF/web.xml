@@ -1,7 +1,63 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+	<display-name>Cinema Web Application</display-name>
+
+	<filter>
+		<filter-name>AccessFilter</filter-name>
+		<filter-class>org.ysh.filter.UrlAccessFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AccessFilter</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+	</filter-mapping>
+	<listener>
+		<listener-class>org.ysh.listener.SessionStateListener</listener-class>
+	</listener>
+	<!-- 管理员登录 -->
+	<servlet>
+		<servlet-name>AdminLoginController</servlet-name>
+		<servlet-class>org.ysh.controller.AdminLoginController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AdminInfoController</servlet-name>
+		<servlet-class>org.ysh.controller.AdminInfoController</servlet-class>
+	</servlet>
+    <servlet>
+        <servlet-name>AdminPasswdController</servlet-name>
+        <servlet-class>org.ysh.controller.AdminPasswdController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminRegistController</servlet-name>
+        <servlet-class>org.ysh.controller.AdminRegistController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminLogoutController</servlet-name>
+        <display-name>AdminLogoutController</display-name>
+        <description/>
+        <servlet-class>org.ysh.controller.AdminLogoutController</servlet-class>
+    </servlet>
+
+	<servlet-mapping>
+		<servlet-name>AdminLoginController</servlet-name>
+		<url-pattern>/admin/login</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminInfoController</servlet-name>
+		<url-pattern>/admin/showinfo</url-pattern>
+	</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminPasswdController</servlet-name>
+        <url-pattern>/admin/update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminRegistController</servlet-name>
+        <url-pattern>/admin/regist</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminLogoutController</servlet-name>
+        <url-pattern>/admin/logout</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>

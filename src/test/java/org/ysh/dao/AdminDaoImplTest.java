@@ -8,7 +8,8 @@ public class AdminDaoImplTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 //		create();
-		query();
+//		query();
+		delete();
 	}
 
 	public static void create()
@@ -22,21 +23,15 @@ public class AdminDaoImplTest {
 	
 	public static void query()
 	{
-		Administrator admin = new Administrator();
-		admin.setUserName("admin");
-		admin.setPasswd("gimis");
 		AdminDao adminDao = new AdminDaoImpl();
-		adminDao.query(admin);
+		Administrator admin = adminDao.validate("admin","gimis");
 		System.out.println(admin);
 	}
 	
 	public static void delete()
 	{
-		Administrator admin = new Administrator();
-		admin.setUserName("admin");
-		admin.setPasswd("gimis");
 		AdminDao adminDao = new AdminDaoImpl();
-		admin = adminDao.query(admin);
+		Administrator admin = adminDao.validate("admin","gimis");
 		adminDao.delete(admin);
 	}
 }

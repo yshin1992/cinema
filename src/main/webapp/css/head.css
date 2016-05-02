@@ -1,0 +1,52 @@
+html, body {
+	margin: 0 auto;
+	padding: 0;
+}
+
+.header {
+	background-color: #545652;
+	height: 28px;
+	font-size: 12px;
+}
+
+div.nav-right {
+	float: right;
+	margin: 0 12px;
+}
+
+a.nav-login {
+	color: #B9C6A9;
+	line-height: 28px;
+	margin: 0;
+	padding: 0 12px;
+	text-decoration: none;
+	display: inline-block;
+}
+
+a.nav-login:HOVER, a.nav-login:ACTIVE, div.user-setting>a:HOVER, div.user-setting>a:ACTIVE
+	{
+	color: #fff;
+}
+
+div.user {
+	position: relative;
+}
+
+div.user-setting {
+	position: absolute;
+	top: 28px;
+	background-color: #545652;
+	left: 0px;
+	padding: 5px 10px;
+	width: 50px;
+	display: none;
+	text-align: center;
+}
+
+div.user-setting>a {
+	text-decoration: none;
+	display: inline-block;
+	color: #B9C6A9;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}

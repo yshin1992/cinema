@@ -14,7 +14,7 @@ import org.ysh.util.DaoUtil;
 import org.ysh.util.MD5Util;
 
 /**
- * ¹ÜÀíÔ±DaoÊµÏÖ
+ * ç®¡ç†å‘˜Daoå®ç°
  * @author Administrator
  *
  */
@@ -22,13 +22,13 @@ public class AdminDaoImpl implements AdminDao {
 
 	private static final String SQL_ADMIN_CREATE = "insert into administrator(username,password,create_time) values(?,?,?);";
 	
-	private static final String SQL_ADMIN_UPDATE = "update administrator set username = ? , password = ?";
+	private static final String SQL_ADMIN_UPDATE = "update administrator set password = ? where id = ?";
 	
 	private static final String SQL_ADMIN_DELETE = "update administrator set valid_flag = 0 where id= ?";
 	
 	private static final String SQL_ADMIN_QUERY = "select id,create_time,valid_flag from administrator where valid_flag != 0 and username = ? and password = ? ";
 	/**
-	 * Ìí¼ÓĞÂ¹ÜÀíÔ±
+	 * æ·»åŠ æ–°ç®¡ç†å‘˜
 	 */
 	public void create(Administrator admin) {
 		Connection conn = DaoUtil.getConn();
@@ -52,7 +52,7 @@ public class AdminDaoImpl implements AdminDao {
 	}
 	
 	/**
-	 * ¸üĞÂ¹ÜÀíÔ±ĞÅÏ¢
+	 * æ›´æ–°ç®¡ç†å‘˜ä¿¡æ¯
 	 */
 	public void update(Administrator admin) {
 		Connection conn = DaoUtil.getConn();
@@ -61,8 +61,8 @@ public class AdminDaoImpl implements AdminDao {
 			pstm = conn.prepareStatement(SQL_ADMIN_UPDATE);
 			if(null != admin)
 			{
-				pstm.setString(1, admin.getUserName());
-				pstm.setString(2, MD5Util.stringMD5(admin.getPasswd()));
+				pstm.setString(1, MD5Util.stringMD5(admin.getPasswd()));
+				pstm.setInt(2, admin.getId());
 				pstm.executeUpdate();
 			}
 		} catch (SQLException e) {
@@ -77,7 +77,7 @@ public class AdminDaoImpl implements AdminDao {
 		return null;
 	}
 	/**
-	 * É¾³ı¹ÜÀíÔ±
+	 * åˆ é™¤ç®¡ç†å‘˜
 	 */
 	public void delete(Administrator admin) {
 		Connection conn = DaoUtil.getConn();
@@ -98,21 +98,24 @@ public class AdminDaoImpl implements AdminDao {
 	}
 
 	/**
-	 * ¸ù¾İÓÃ»§ÃûºÍÃÜÂëÅĞ¶Ïµ±Ç°¹ÜÀíÔ±ÊÇ·ñ´æÔÚ
+	 * æ ¹æ®ç”¨æˆ·åå’Œå¯†ç åˆ¤æ–­å½“å‰ç®¡ç†å‘˜æ˜¯å¦å­˜åœ¨
 	 */
-	public Administrator query(Administrator admin) {
+	public Administrator validate(String username, String password) {
 		Connection conn = DaoUtil.getConn();
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
+		Administrator admin = null;
 		try {
 			pstm = conn.prepareStatement(SQL_ADMIN_QUERY);
-			if(null != admin)
+			if(null != username && null != password)
 			{
-				pstm.setString(1, admin.getUserName());
-				pstm.setString(2, MD5Util.stringMD5(admin.getPasswd()));
+				pstm.setString(1, username);
+				pstm.setString(2, MD5Util.stringMD5(password));
 				rs = pstm.executeQuery();
 				while(rs.next())
 				{
+					admin = new Administrator();
+					admin.setUserName(username);
 					admin.setId(rs.getInt(1));
 					admin.setCreateTime(rs.getTimestamp(2));
 					admin.setValidFlag(rs.getBoolean(3));
@@ -124,7 +127,7 @@ public class AdminDaoImpl implements AdminDao {
 			DaoUtil.closeStmt(pstm);
 			DaoUtil.closeConn(conn);
 		}
-		return admin.getId() == null ? null : admin;
+		return admin;
 	}
 
 }

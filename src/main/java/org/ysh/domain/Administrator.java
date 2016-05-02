@@ -3,29 +3,29 @@ package org.ysh.domain;
 import java.util.Date;
 
 /**
- * ÓÃ»§¹ÜÀí±í
+ * ç”¨æˆ·ç®¡ç†è¡¨
  * @author Administrator
  *
  */
 public class Administrator implements Entity {
 	private Integer id;
 	/**
-	 * ÓÃ»§Ãû
+	 * ç”¨æˆ·å
 	 */
 	private String userName;
 	
 	/**
-	 * ÃÜÂë(Ê¹ÓÃMD5Ëã·¨¼ÓÃÜ)
+	 * å¯†ç (ä½¿ç”¨MD5ç®—æ³•åŠ å¯†)
 	 */
 	private String passwd;
 	
 	/**
-	 * ÓÃ»§´´½¨Ê±¼ä
+	 * ç”¨æˆ·åˆ›å»ºæ—¶é—´
 	 */
 	private Date createTime;
 	
 	/**
-	 * ÓÃ»§µÄÓĞĞ§±êÊ¶(0 ÎŞĞ§ 1 ÓĞĞ§)
+	 * ç”¨æˆ·çš„æœ‰æ•ˆæ ‡è¯†(0 æ— æ•ˆ 1 æœ‰æ•ˆ)
 	 */
 	private boolean validFlag;
 

@@ -3,10 +3,10 @@ package org.ysh.dao;
 import org.ysh.domain.Administrator;
 
 /**
- * ¹ÜÀíÔ±Dao
+ * ç®¡ç†å‘˜Dao
  * @author Administrator
  *
  */
 public interface AdminDao extends AbstractDao<Administrator> {
-	
+	public Administrator validate(String username,String password);
 }
