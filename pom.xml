@@ -3,10 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.yshin1992</groupId>
 	<artifactId>cinema</artifactId>
-	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>cinema Maven Webapp</name>
-	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -15,9 +17,9 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>thirdparty.jdbc</groupId>
-			<artifactId>mysql-jdbc</artifactId>
-			<version>5.1.16</version>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.18</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -28,5 +30,16 @@
 	</dependencies>
 	<build>
 		<finalName>cinema</finalName>
+		<!-- 
+		<resources>
+			<resource>
+				<directory>src/main/webapp</directory>
+				<excludes>
+					<exclude>**</exclude>
+				</excludes>
+				<targetPath>webapp</targetPath>
+			</resource>
+		</resources>
+		 -->
 	</build>
 </project>
